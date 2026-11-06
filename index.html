@@ -249,11 +249,11 @@ const PARTS=[
 
 /* ===== Plans (rates from carrier SBCs) — columns: [Individual, +Spouse, +Child(ren), Family] by age band 18-29, 30-44, 45-54, 55-64 ===== */
 const HEALTHY=[
- {carrier:'Bright Life',name:'VL 1500',tag:'Lowest price',kind:'band',rates:[[309,589,579,849],[339,644,629,909],[389,714,699,979],[399,764,749,1009]],
+ {carrier:'Health Shield',name:'VL 1500',tag:'Lowest price',kind:'band',rates:[[309,589,579,849],[339,644,629,909],[389,714,699,979],[399,764,749,1009]],
   rows:[['Deductible','$1,500'],['Doctor visits','$50 copay (10/yr)'],['Generic Rx','$0'],['Network','PHCS']]},
- {carrier:'Bright Life',name:'PPO 1250',tag:'Best balance',kind:'band',rates:[[389,729,719,1029],[409,769,759,1059],[429,829,819,1129],[459,849,829,1169]],
+ {carrier:'Health Shield',name:'PPO 1250',tag:'Best balance',kind:'band',rates:[[389,729,719,1029],[409,769,759,1059],[429,829,819,1129],[459,849,829,1169]],
   rows:[['Deductible','$1,250'],['Doctor visits','$50 PCP · $75 specialist'],['Generic Rx','$0'],['Network','Cigna PPO']]},
- {carrier:'Bright Life',name:'MM 5300',tag:'Major medical',kind:'band',rates:[[614,1089,984,1479],[634,1119,1024,1539],[654,1179,1064,1599],[684,1269,1134,1729]],
+ {carrier:'Health Shield',name:'MM 5300',tag:'Major medical',kind:'band',rates:[[614,1089,984,1479],[634,1119,1024,1539],[654,1179,1064,1599],[684,1269,1134,1729]],
   rows:[['Deductible','$5,300'],['Doctor visits','$50 PCP · $60 specialist'],['Rx','$10 generic · $90 brand · GLP-1 covered'],['Network','Cigna PPO']]},
  {carrier:'Manhattan Life',name:'Affordable Choice',tag:'Any doctor',kind:'afc'}
 ];
@@ -331,7 +331,7 @@ function answers(){const out=[];PARTS.forEach(p=>p.qs.forEach((q,i)=>{const c=do
 $('s2').addEventListener('submit',e=>{e.preventDefault();const a=answers();
   if(a.some(x=>!x.a)){$('err2').textContent='Please answer every question with Yes or No.';$('err2').hidden=false;return}
   $('err2').hidden=true;senior=false;showSubmit()});
-function route(){return senior?'MEDICARE (65+): offer Amaze Health + Medicare review':answers().some(x=>x.a==='yes')?'AMERIBENEFIT (answered YES to a health question)':'PREFERRED (all NO): Bright Life + Manhattan Life'}
+function route(){return senior?'MEDICARE (65+): offer Amaze Health + Medicare review':answers().some(x=>x.a==='yes')?'AMERIBENEFIT (answered YES to a health question)':'PREFERRED (all NO): Health Shield + Manhattan Life'}
 const GAS=!!window.EXEC_URL;
 function showSubmit(){
   $('review').textContent=summary();$('subjLine').textContent=subj();
